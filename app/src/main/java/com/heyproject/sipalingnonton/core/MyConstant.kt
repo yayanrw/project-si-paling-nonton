@@ -1,0 +1,4 @@
+package com.heyproject.sipalingnonton.core
+
+const val BASE_URL = ""
+const val BEARER_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNWQ3ZDcwN2M1ZWY1NWZiNWI4MjhhNDE2ZmEzZGNiOSIsInN1YiI6IjYyNzI5ZjFhYTMxM2I4MTJjYmRlZDk4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.miNA7aldD4w3I3oIQRPaE0OXOZukXrThif8lyUkt5ZM"
