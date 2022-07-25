@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="midnight_blue">#2c3e50</color>
+    <color name="midnight_blue_light">#57687c</color>
+    <color name="midnight_blue_dark">#031828</color>
+
+    <color name="alizarin">#e74c3c</color>
+    <color name="alizarin_light">#ff7f67</color>
+    <color name="alizarin_dark">#ae0c13</color>
 </resources>
