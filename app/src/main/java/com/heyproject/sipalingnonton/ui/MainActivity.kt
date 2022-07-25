@@ -1,12 +1,14 @@
 package com.heyproject.sipalingnonton.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.heyproject.sipalingnonton.R
+import androidx.appcompat.app.AppCompatActivity
+import com.heyproject.sipalingnonton.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
