@@ -2,8 +2,7 @@ package com.heyproject.sipalingnonton.data.remote
 
 import com.heyproject.sipalingnonton.data.remote.dto.GenresDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDetailDto
-import com.heyproject.sipalingnonton.data.remote.response.DiscoverMovieResponse
-import com.heyproject.sipalingnonton.data.remote.response.SearchMovieResponse
+import com.heyproject.sipalingnonton.data.remote.response.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -14,7 +13,7 @@ interface MovieApi {
         @Path("sortBy") sortBy: String,
         @Path("withOriginalLanguage") withOriginalLanguage: String,
         @Path("withGenres") withGenres: String
-    ): DiscoverMovieResponse
+    ): MovieResponse
 
     @GET("movie/{movieId}")
     suspend fun getMovieDetail(
@@ -24,10 +23,16 @@ interface MovieApi {
     @GET("search/movie?query={query}")
     suspend fun searchMovie(
         @Path("query") query: String
-    ): SearchMovieResponse
+    ): MovieResponse
 
     @GET("genre/movie/list")
     suspend fun getMovieGenre() : GenresDto
 
+    @GET("trending/movie/week")
+    suspend fun getTrendingMovie() : MovieResponse
 
+    @GET("movie/{movieId}/similar")
+    suspend fun getSimilarMovie(
+        @Path("movieId") movieId: Int
+    ): MovieResponse
 }

@@ -4,7 +4,7 @@ package com.heyproject.sipalingnonton.data.remote.response
 import com.google.gson.annotations.SerializedName
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDto
 
-data class DiscoverMovieResponse(
+data class MovieResponse(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
