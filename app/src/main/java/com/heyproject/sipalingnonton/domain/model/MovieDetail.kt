@@ -3,7 +3,7 @@ package com.heyproject.sipalingnonton.domain.model
 data class MovieDetail(
     val backdropPath: String,
     val genres: List<Genre>,
-    val homepage: String,
+    val homepage: String?,
     val id: Int,
     val imdbId: String,
     val overview: String,

@@ -3,6 +3,7 @@ package com.heyproject.sipalingnonton.data.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.heyproject.sipalingnonton.domain.model.Genre
 
 @Entity(tableName = "movies_detail")
 data class MovieDetailEntity(
@@ -27,6 +28,12 @@ data class MovieDetailEntity(
 
     @ColumnInfo(name = "vote_average")
     val voteAverage: Double,
+
+    @ColumnInfo(name = "genres")
+    val genres: List<Genre>,
+
+    @ColumnInfo(name = "imdb_id")
+    val imdbId: String,
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()

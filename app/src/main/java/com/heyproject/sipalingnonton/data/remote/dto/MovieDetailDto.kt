@@ -16,7 +16,7 @@ data class MovieDetailDto(
     @SerializedName("genres")
     val genres: List<GenreDto>,
     @SerializedName("homepage")
-    val homepage: String,
+    val homepage: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("imdb_id")

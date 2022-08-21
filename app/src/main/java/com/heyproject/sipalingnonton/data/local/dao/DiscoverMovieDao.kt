@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.data.local
+package com.heyproject.sipalingnonton.data.local.dao
 
 import androidx.room.*
 import com.heyproject.sipalingnonton.data.local.entity.DiscoverMovieEntity
