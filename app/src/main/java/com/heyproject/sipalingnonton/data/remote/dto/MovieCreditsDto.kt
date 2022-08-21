@@ -2,7 +2,7 @@ package com.heyproject.sipalingnonton.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
-import com.heyproject.sipalingnonton.domain.model.MovieCredits
+import com.heyproject.sipalingnonton.domain.model.MovieCredit
 
 data class MovieCreditsDto(
     @SerializedName("cast")
@@ -12,8 +12,8 @@ data class MovieCreditsDto(
     @SerializedName("id")
     val id: Int
 ) {
-    fun toMovieCredits(): MovieCredits {
-        return MovieCredits(
+    fun toMovieCredits(): MovieCredit {
+        return MovieCredit(
             cast = cast.map { it.toCast() },
             id = id
         )

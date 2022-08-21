@@ -3,6 +3,7 @@ package com.heyproject.sipalingnonton.data.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.heyproject.sipalingnonton.domain.model.SimilarMovie
 
 @Entity(tableName = "similar_movies")
 data class SimilarMovieEntity(
@@ -39,4 +40,19 @@ data class SimilarMovieEntity(
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
-)
+) {
+    fun toSimilarMovie(): SimilarMovie {
+        return SimilarMovie(
+            id = id,
+            movieId = movieId,
+            referenceMovieId = referenceMovieId,
+            title = title,
+            overview = overview,
+            backdropPath = backdropPath,
+            posterPath = posterPath,
+            releaseDate = releaseDate,
+            voteAverage = voteAverage,
+            genreIds = genreIds
+        )
+    }
+}

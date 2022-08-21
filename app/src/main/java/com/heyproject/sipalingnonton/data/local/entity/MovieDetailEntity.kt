@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.heyproject.sipalingnonton.domain.model.Genre
+import com.heyproject.sipalingnonton.domain.model.MovieDetail
 
 @Entity(tableName = "movies_detail")
 data class MovieDetailEntity(
@@ -32,9 +33,27 @@ data class MovieDetailEntity(
     @ColumnInfo(name = "genres")
     val genres: List<Genre>,
 
+    @ColumnInfo(name = "home_page")
+    val homepage: String?,
+
     @ColumnInfo(name = "imdb_id")
     val imdbId: String,
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
-)
+) {
+    fun toMovieDetail(): MovieDetail {
+        return MovieDetail(
+            backdropPath = backdropPath,
+            genres = genres,
+            id = id,
+            imdbId = imdbId,
+            overview = overview,
+            posterPath = posterPath,
+            releaseDate = releaseDate,
+            title = title,
+            voteAverage = voteAverage,
+            homepage = homepage
+        )
+    }
+}

@@ -3,6 +3,7 @@ package com.heyproject.sipalingnonton.data.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.heyproject.sipalingnonton.domain.model.Movie
 
 @Entity(tableName = "movies")
 data class MovieEntity(
@@ -45,4 +46,17 @@ data class MovieEntity(
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
-)
+) {
+    fun toMovie(): Movie {
+        return Movie(
+            backdropPath = backdropPath,
+            genreIds = genreIds,
+            id = id,
+            overview = overview,
+            posterPath = posterPath,
+            releaseDate = releaseDate,
+            title = title,
+            voteAverage = voteAverage
+        )
+    }
+}

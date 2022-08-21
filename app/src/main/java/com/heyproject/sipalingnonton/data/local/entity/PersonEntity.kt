@@ -3,6 +3,7 @@ package com.heyproject.sipalingnonton.data.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.heyproject.sipalingnonton.domain.model.Person
 
 @Entity(tableName = "persons")
 data class PersonEntity(
@@ -39,4 +40,19 @@ data class PersonEntity(
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
-)
+) {
+    fun toPerson(): Person {
+        return Person(
+            alsoKnownAs = alsoKnownAs,
+            biography = biography,
+            birthday = birthday,
+            deathday = deathday,
+            id = id,
+            imdbId = imdbId,
+            knownForDepartment = knownForDepartment,
+            name = name,
+            placeOfBirth = placeOfBirth,
+            profilePath = profilePath
+        )
+    }
+}
