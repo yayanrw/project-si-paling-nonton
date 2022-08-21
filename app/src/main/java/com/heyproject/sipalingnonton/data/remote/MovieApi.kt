@@ -11,11 +11,11 @@ import retrofit2.http.Path
 
 interface MovieApi {
     @GET("discover/movie?page={page}&sort_by={sortBy}&with_original_language={withOriginalLanguage}&with_genres={withGenre}")
-    suspend fun getDiscoverMovie(
-        @Path("page") page: Int,
-        @Path("sortBy") sortBy: String,
-        @Path("withOriginalLanguage") withOriginalLanguage: String,
-        @Path("withGenres") withGenres: String
+    suspend fun getMovies(
+        @Path("page") page: Int?,
+        @Path("sortBy") sortBy: String?,
+        @Path("withOriginalLanguage") withOriginalLanguage: String?,
+        @Path("withGenres") withGenres: String?
     ): MovieResponse
 
     @GET("movie/{movieId}")
@@ -24,21 +24,21 @@ interface MovieApi {
     ): MovieDetailDto
 
     @GET("search/movie?query={query}")
-    suspend fun searchMovie(
+    suspend fun searchMovies(
         @Path("query") query: String
     ): MovieResponse
 
     @GET("movie/now_playing?region={region}")
-    suspend fun getNowPlayingMovie(): NowPlayingMovieResponse
+    suspend fun getNowPlayingMovies(): NowPlayingMovieResponse
 
     @GET("trending/movie/week")
-    suspend fun getTrendingMovie(): MovieResponse
+    suspend fun getTrendingMovies(): MovieResponse
 
     @GET("movie/top_rated")
-    suspend fun getTopRatedMovie(): MovieResponse
+    suspend fun getTopRatedMovies(): MovieResponse
 
     @GET("movie/{movieId}/similar")
-    suspend fun getSimilarMovie(
+    suspend fun getSimilarMovies(
         @Path("movieId") movieId: Int
     ): MovieResponse
 
