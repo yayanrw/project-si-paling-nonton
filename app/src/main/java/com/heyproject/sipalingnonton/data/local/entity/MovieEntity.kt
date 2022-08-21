@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "discover_movies")
-data class DiscoverMovieEntity(
+@Entity(tableName = "movies")
+data class MovieEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Int,
@@ -33,6 +33,15 @@ data class DiscoverMovieEntity(
 
     @ColumnInfo(name = "is_favorite")
     val isFavorite: Boolean = false,
+
+    @ColumnInfo(name = "is_trending")
+    val isTrending: Boolean = false,
+
+    @ColumnInfo(name = "is_top_rated")
+    val isTopRated: Boolean = false,
+
+    @ColumnInfo(name = "is_now_playing")
+    val isNowPlaying: Boolean = false,
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()
