@@ -39,13 +39,11 @@ data class MovieDto(
             backdropPath = backdropPath,
             genreIds = genreIds,
             id = id,
-            originalTitle = originalTitle,
             overview = overview,
             posterPath = posterPath,
             releaseDate = releaseDate,
             title = title,
             voteAverage = voteAverage,
-            voteCount = voteCount
         )
     }
 }
