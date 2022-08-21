@@ -34,13 +34,13 @@ interface MovieApi {
     @GET("trending/movie/week")
     suspend fun getTrendingMovie(): MovieResponse
 
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovie(): MovieResponse
+
     @GET("movie/{movieId}/similar")
     suspend fun getSimilarMovie(
         @Path("movieId") movieId: Int
     ): MovieResponse
-
-    @GET("movie/top_rated")
-    suspend fun getTopRatedMovie(): MovieResponse
 
     @GET("movie/{movieId}/credits")
     suspend fun getMovieCredits(): MovieCreditsDto
