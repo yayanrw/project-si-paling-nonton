@@ -32,5 +32,8 @@ data class DiscoverMovieEntity(
     val genreIds: List<Int>,
 
     @ColumnInfo(name = "is_favorite")
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
+
+    @ColumnInfo(name = "created_at")
+    val createdAt: Long = System.currentTimeMillis()
 )

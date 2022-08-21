@@ -27,4 +27,7 @@ data class MovieDetailEntity(
 
     @ColumnInfo(name = "vote_average")
     val voteAverage: Double,
+
+    @ColumnInfo(name = "created_at")
+    val createdAt: Long = System.currentTimeMillis()
 )
