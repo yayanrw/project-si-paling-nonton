@@ -2,6 +2,7 @@ package com.heyproject.sipalingnonton.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.heyproject.sipalingnonton.domain.model.MovieDetail
 
 data class MovieDetailDto(
     @SerializedName("adult")
@@ -54,4 +55,34 @@ data class MovieDetailDto(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) {
+    fun toMovieDetail(): MovieDetail {
+        return MovieDetail(
+            adult = adult,
+            backdropPath = backdropPath,
+            belongsToCollection = belongsToCollection.toBelongsToCollection(),
+            budget = budget,
+            genres = genres.map { it.toGenre() },
+            homepage = homepage,
+            id = id,
+            imdbId = imdbId,
+            originalLanguage = originalLanguage,
+            originalTitle = originalTitle,
+            overview = overview,
+            popularity = popularity,
+            posterPath = posterPath,
+            productionCompanies = productionCompanies.map { it.toProductionCompany() },
+            productionCountries = productionCountries.map { it.toProductionCountry() },
+            releaseDate = releaseDate,
+            revenue = revenue,
+            runtime = runtime,
+            spokenLanguages = spokenLanguages.map { it.toSpokenLanguage() },
+            status = status,
+            tagline = tagline,
+            title = title,
+            video = video,
+            voteAverage = voteAverage,
+            voteCount = voteCount
+        )
+    }
+}

@@ -2,6 +2,7 @@ package com.heyproject.sipalingnonton.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.heyproject.sipalingnonton.domain.model.SpokenLanguage
 
 data class SpokenLanguageDto(
     @SerializedName("english_name")
@@ -10,4 +11,8 @@ data class SpokenLanguageDto(
     val iso6391: String,
     @SerializedName("name")
     val name: String
-)
+) {
+    fun toSpokenLanguage(): SpokenLanguage {
+        return SpokenLanguage(englishName = englishName, iso6391 = iso6391, name = name)
+    }
+}
