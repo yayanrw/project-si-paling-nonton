@@ -4,7 +4,7 @@ import com.heyproject.sipalingnonton.data.remote.dto.GenresDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieCreditsDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDetailDto
 import com.heyproject.sipalingnonton.data.remote.dto.PersonDto
-import com.heyproject.sipalingnonton.data.remote.response.MovieNowPlayingResponse
+import com.heyproject.sipalingnonton.data.remote.response.NowPlayingMovieResponse
 import com.heyproject.sipalingnonton.data.remote.response.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -29,7 +29,7 @@ interface MovieApi {
     ): MovieResponse
 
     @GET("movie/now_playing?region={region}")
-    suspend fun getMovieNowPlaying(): MovieNowPlayingResponse
+    suspend fun getNowPlayingMovie(): NowPlayingMovieResponse
 
     @GET("trending/movie/week")
     suspend fun getTrendingMovie(): MovieResponse

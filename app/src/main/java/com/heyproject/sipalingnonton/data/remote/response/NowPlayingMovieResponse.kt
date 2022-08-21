@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import com.heyproject.sipalingnonton.data.remote.dto.DatesDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDto
 
-data class MovieNowPlayingResponse(
+data class NowPlayingMovieResponse(
     @SerializedName("dates")
     val dates: DatesDto,
     @SerializedName("page")
