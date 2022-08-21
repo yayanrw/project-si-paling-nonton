@@ -1,7 +1,9 @@
 package com.heyproject.sipalingnonton.data.remote
 
 import com.heyproject.sipalingnonton.data.remote.dto.GenresDto
+import com.heyproject.sipalingnonton.data.remote.dto.MovieCreditsDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDetailDto
+import com.heyproject.sipalingnonton.data.remote.dto.PersonDto
 import com.heyproject.sipalingnonton.data.remote.response.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -26,10 +28,10 @@ interface MovieApi {
     ): MovieResponse
 
     @GET("genre/movie/list")
-    suspend fun getMovieGenre() : GenresDto
+    suspend fun getMovieGenre(): GenresDto
 
     @GET("trending/movie/week")
-    suspend fun getTrendingMovie() : MovieResponse
+    suspend fun getTrendingMovie(): MovieResponse
 
     @GET("movie/{movieId}/similar")
     suspend fun getSimilarMovie(
@@ -38,4 +40,10 @@ interface MovieApi {
 
     @GET("movie/top_rated")
     suspend fun getTopRatedMovie(): MovieResponse
+
+    @GET("movie/{movieId}/credits")
+    suspend fun getMovieCredits(): MovieCreditsDto
+
+    @GET("person/{personId}")
+    suspend fun getPerson(): PersonDto
 }
