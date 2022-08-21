@@ -58,31 +58,16 @@ data class MovieDetailDto(
 ) {
     fun toMovieDetail(): MovieDetail {
         return MovieDetail(
-            adult = adult,
             backdropPath = backdropPath,
-            belongsToCollection = belongsToCollection.toBelongsToCollection(),
-            budget = budget,
             genres = genres.map { it.toGenre() },
             homepage = homepage,
             id = id,
             imdbId = imdbId,
-            originalLanguage = originalLanguage,
-            originalTitle = originalTitle,
             overview = overview,
-            popularity = popularity,
             posterPath = posterPath,
-            productionCompanies = productionCompanies.map { it.toProductionCompany() },
-            productionCountries = productionCountries.map { it.toProductionCountry() },
             releaseDate = releaseDate,
-            revenue = revenue,
-            runtime = runtime,
-            spokenLanguages = spokenLanguages.map { it.toSpokenLanguage() },
-            status = status,
-            tagline = tagline,
             title = title,
-            video = video,
             voteAverage = voteAverage,
-            voteCount = voteCount
         )
     }
 }
