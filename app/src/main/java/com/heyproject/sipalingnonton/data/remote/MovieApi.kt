@@ -35,4 +35,7 @@ interface MovieApi {
     suspend fun getSimilarMovie(
         @Path("movieId") movieId: Int
     ): MovieResponse
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovie(): MovieResponse
 }
