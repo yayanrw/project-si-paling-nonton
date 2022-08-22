@@ -5,11 +5,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.heyproject.sipalingnonton.data.local.entity.MovieCreditEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieCreditDao {
-    @Query("SELECT * FROM movie_credits WHERE id = :id")
-    suspend fun getMovieCredit(id: Int): List<MovieCreditEntity>
+    @Query("SELECT * FROM movie_credits WHERE id = :movieId")
+    suspend fun getMovieCredit(movieId: Int): Flow<MovieCreditEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieCredit(movieCredit: MovieCreditEntity)

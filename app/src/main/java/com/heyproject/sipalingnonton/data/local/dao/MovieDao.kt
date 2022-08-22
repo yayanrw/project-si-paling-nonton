@@ -2,26 +2,27 @@ package com.heyproject.sipalingnonton.data.local.dao
 
 import androidx.room.*
 import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
     @Query("SELECT * FROM movies")
-    suspend fun getMovies(): List<MovieEntity>
+    suspend fun getMovies(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movies WHERE is_favorite = 1")
-    suspend fun getFavoriteMovies(): List<MovieEntity>
+    suspend fun getFavoriteMovies(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movies WHERE is_trending = 1")
-    suspend fun getTrendingMovies(): List<MovieEntity>
+    suspend fun getTrendingMovies(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movies WHERE is_now_playing = 1")
-    suspend fun getNowPlayingMovies(): List<MovieEntity>
+    suspend fun getNowPlayingMovies(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movies WHERE is_top_rated = 1")
-    suspend fun getTopRatedMovies(): List<MovieEntity>
+    suspend fun getTopRatedMovies(): Flow<List<MovieEntity>>
 
     @Query("SELECT * FROM movies WHERE title LIKE '%' || :search || '%'")
-    suspend fun searchMovies(search: String): List<MovieEntity>
+    suspend fun searchMovies(search: String): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movies: List<MovieEntity>)
