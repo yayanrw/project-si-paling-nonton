@@ -26,7 +26,7 @@ class LocalDataSource(
     suspend fun deleteMovieCredit() = movieCreditDao.deleteMovieCredit()
 
     //movieDao
-    suspend fun getMovies(): Flow<List<MovieEntity>> = movieDao.getMovies()
+    fun getMovies(): Flow<List<MovieEntity>> = movieDao.getMovies()
     suspend fun getFavoriteMovies(): Flow<List<MovieEntity>> = movieDao.getFavoriteMovies()
     suspend fun getTrendingMovies(): Flow<List<MovieEntity>> = movieDao.getTrendingMovies()
     suspend fun getNowPlayingMovies(): Flow<List<MovieEntity>> = movieDao.getNowPlayingMovies()
