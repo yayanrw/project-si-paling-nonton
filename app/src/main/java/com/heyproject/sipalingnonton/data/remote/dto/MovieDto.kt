@@ -2,6 +2,7 @@ package com.heyproject.sipalingnonton.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
 import com.heyproject.sipalingnonton.domain.model.Movie
 
 data class MovieDto(
@@ -44,6 +45,19 @@ data class MovieDto(
             releaseDate = releaseDate,
             title = title,
             voteAverage = voteAverage,
+        )
+    }
+
+    fun toMovieEntity(): MovieEntity {
+        return MovieEntity(
+            id = id,
+            title = title,
+            overview = overview,
+            backdropPath = backdropPath,
+            posterPath = posterPath,
+            releaseDate = releaseDate,
+            voteAverage = voteAverage,
+            genreIds = genreIds
         )
     }
 }
