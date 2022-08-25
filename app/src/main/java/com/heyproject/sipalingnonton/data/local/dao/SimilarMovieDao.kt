@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SimilarMovieDao {
     @Query("SELECT * FROM similar_movies WHERE reference_movie_id = :referenceMovieId")
-    suspend fun getSimilarMovies(referenceMovieId: Int): Flow<SimilarMovieEntity>
+    fun getSimilarMovies(referenceMovieId: Int): Flow<SimilarMovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSimilarMovies(similarMovies: List<SimilarMovieEntity>)

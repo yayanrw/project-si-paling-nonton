@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MovieCreditDao {
     @Query("SELECT * FROM movie_credits WHERE id = :movieId")
-    suspend fun getMovieCredit(movieId: Int): Flow<MovieCreditEntity>
+    fun getMovieCredit(movieId: Int): Flow<MovieCreditEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieCredit(movieCredit: MovieCreditEntity)
