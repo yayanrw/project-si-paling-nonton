@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setActionBar()
+        viewModel.getMovies()
     }
 
     private fun setActionBar() {

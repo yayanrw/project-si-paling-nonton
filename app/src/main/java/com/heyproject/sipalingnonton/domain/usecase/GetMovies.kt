@@ -5,6 +5,8 @@ import com.heyproject.sipalingnonton.domain.model.Movie
 import com.heyproject.sipalingnonton.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 
-class MovieInteractor(private val movieRepository: MovieRepository) : MovieUsecase {
-    override fun getMovies() = movieRepository.getMovies()
+class GetMovies(private val movieRepository: MovieRepository) {
+    operator fun invoke(): Flow<Resource<List<Movie>>> {
+        return movieRepository.getMovies()
+    }
 }

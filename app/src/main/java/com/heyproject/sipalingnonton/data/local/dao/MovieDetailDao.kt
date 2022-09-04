@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDetailDao {
-    @Query("SELECT A.*, B.is_favorite FROM movies_detail A INNER JOIN movies B ON A.id = B.id WHERE A.id = :movieId")
-    fun getMovieDetail(movieId: Int): Flow<MovieDetailEntity>
+    @Query("SELECT * FROM movies_detail WHERE id = :movieId")
+    suspend fun getMovieDetail(movieId: Int): Flow<MovieDetailEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieDetail(movieDetail: MovieDetailEntity)
