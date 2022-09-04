@@ -21,7 +21,7 @@ buildscript {
 
         //retrofit
         retrofit_version = "2.9.0"
-        logging_interceptor_version = "4.9.0"
+        logging_interceptor_version = "4.10.0"
 
         //testing
         junit_version = '4.13.2'
@@ -30,6 +30,9 @@ buildscript {
 
         //library
         coil_version = '2.2.0'
+
+        //dependency injection
+        koin_version = '2.1.5'
     }
     repositories {
         google()
