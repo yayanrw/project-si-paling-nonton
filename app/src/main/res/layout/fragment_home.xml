@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/midnight_blue">
+    android:background="@color/midnight_blue"
+    android:padding="16dp"
+    tools:context=".presentation.home.HomeFragment">
 
     <TextView
+        android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

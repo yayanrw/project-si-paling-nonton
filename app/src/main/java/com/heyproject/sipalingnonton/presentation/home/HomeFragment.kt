@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.ui.home
+package com.heyproject.sipalingnonton.presentation.home
 
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.heyproject.sipalingnonton.R
 import com.heyproject.sipalingnonton.databinding.FragmentHomeBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 const val TAG = "HomeFragment"
 
 class HomeFragment : Fragment(), MenuProvider {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +29,13 @@ class HomeFragment : Fragment(), MenuProvider {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.movie.observe(viewLifecycleOwner) {
+            binding.tvResult.text = it.data.toString()
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

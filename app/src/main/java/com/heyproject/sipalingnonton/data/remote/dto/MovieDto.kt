@@ -38,7 +38,6 @@ data class MovieDto(
     fun toMovie(): Movie {
         return Movie(
             backdropPath = backdropPath,
-            genreIds = genreIds,
             id = id,
             overview = overview,
             posterPath = posterPath,
@@ -57,7 +56,6 @@ data class MovieDto(
             posterPath = posterPath,
             releaseDate = releaseDate,
             voteAverage = voteAverage,
-            genreIds = genreIds
         )
     }
 }
