@@ -1,7 +1,7 @@
 package com.heyproject.sipalingnonton.data.remote
 
 import com.heyproject.sipalingnonton.core.BEARER_TOKEN
-import com.heyproject.sipalingnonton.data.remote.response.MovieResponse
+import com.heyproject.sipalingnonton.data.remote.response.MoviesResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -14,5 +14,5 @@ interface MovieApi {
         @Path("sortBy") sortBy: String?,
         @Path("withOriginalLanguage") withOriginalLanguage: String?,
         @Path("withGenres") withGenres: String?
-    ): MovieResponse
+    ): MoviesResponse
 }
