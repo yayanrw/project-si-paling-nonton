@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.data.util
+package com.heyproject.sipalingnonton.data.utils
 
 import com.heyproject.sipalingnonton.core.Resource
 import kotlinx.coroutines.flow.*

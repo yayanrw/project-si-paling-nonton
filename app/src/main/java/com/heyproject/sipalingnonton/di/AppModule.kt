@@ -9,7 +9,6 @@ import com.heyproject.sipalingnonton.data.local.database.MoviesDatabase
 import com.heyproject.sipalingnonton.data.remote.MovieApi
 import com.heyproject.sipalingnonton.data.remote.RemoteDataSource
 import com.heyproject.sipalingnonton.data.repository.MovieRepositoryImpl
-import com.heyproject.sipalingnonton.data.util.GsonParser
 import com.heyproject.sipalingnonton.domain.repository.MovieRepository
 import com.heyproject.sipalingnonton.domain.usecase.GetMovies
 import dagger.Module

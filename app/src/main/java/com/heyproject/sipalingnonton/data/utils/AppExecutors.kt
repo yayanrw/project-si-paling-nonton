@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.data.util
+package com.heyproject.sipalingnonton.data.utils
 
 import android.os.Handler
 import android.os.Looper

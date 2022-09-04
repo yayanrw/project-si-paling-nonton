@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.data.util
+package com.heyproject.sipalingnonton.data.utils
 
 sealed class ApiResponse<out R> {
     data class Success<out T>(val data: T) : ApiResponse<T>()

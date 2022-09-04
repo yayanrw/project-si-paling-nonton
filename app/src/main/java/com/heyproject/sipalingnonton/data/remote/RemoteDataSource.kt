@@ -1,7 +1,7 @@
 package com.heyproject.sipalingnonton.data.remote
 
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDto
-import com.heyproject.sipalingnonton.data.util.ApiResponse
+import com.heyproject.sipalingnonton.data.utils.ApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
