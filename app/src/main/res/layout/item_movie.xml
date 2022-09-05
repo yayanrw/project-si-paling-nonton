@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="movieDetail"
-            type="com.heyproject.sipalingnonton.domain.model.MovieDetail" />
-
-        <variable
             name="imgUrl"
             type="String" />
     </data>

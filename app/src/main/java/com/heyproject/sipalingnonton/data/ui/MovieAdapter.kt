@@ -1,0 +1,34 @@
+package com.heyproject.sipalingnonton.data.ui
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.heyproject.sipalingnonton.core.IMAGE_URL_SMALL
+import com.heyproject.sipalingnonton.databinding.ItemMovieBinding
+import com.heyproject.sipalingnonton.domain.model.Movie
+
+class MovieAdapter(private val movies: List<Movie>?) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    class MovieViewHolder(var binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(movie: Movie?) {
+            binding.apply {
+                imgUrl = """$IMAGE_URL_SMALL${movie?.backdropPath}"""
+                tvItemTitle.text = movie?.title
+                tvItemSubtitle.text = movie?.releaseDate
+                executePendingBindings()
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movie = movies?.get(position)
+        holder.bind(movie)
+    }
+
+    override fun getItemCount(): Int = movies?.size ?: 0
+}
