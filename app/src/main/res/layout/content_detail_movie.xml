@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             tools:text="@tools:sample/lorem/random"
-            android:text="@{movie.overview}"/>
+            android:text="@{movie.overview}"
+            android:textColor="@color/white"/>
 
     </androidx.core.widget.NestedScrollView>
 </layout>
