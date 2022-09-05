@@ -1,5 +1,6 @@
 package com.heyproject.sipalingnonton.data.remote
 
+import com.heyproject.sipalingnonton.data.remote.dto.MovieDetailDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDto
 import com.heyproject.sipalingnonton.data.utils.ApiResponse
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +15,21 @@ class RemoteDataSource(private val movieApi: MovieApi) {
                 val response = movieApi.getMovies(1, null, null, null)
                 if (response.results.isNotEmpty()) {
                     emit(ApiResponse.Success(response.results))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getMovieDetail(movieId: Int): Flow<ApiResponse<MovieDetailDto>> {
+        return flow<ApiResponse<MovieDetailDto>> {
+            try {
+                val response = movieApi.getMovieDetail(movieId)
+                if (response.originalTitle.isNotEmpty()) {
+                    emit(ApiResponse.Success(response))
                 } else {
                     emit(ApiResponse.Empty)
                 }
