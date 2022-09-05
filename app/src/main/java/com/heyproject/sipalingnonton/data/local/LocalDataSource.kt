@@ -1,11 +1,14 @@
 package com.heyproject.sipalingnonton.data.local
 
 import com.heyproject.sipalingnonton.data.local.dao.MovieDao
+import com.heyproject.sipalingnonton.data.local.dao.MovieDetailDao
+import com.heyproject.sipalingnonton.data.local.entity.MovieDetailEntity
 import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource(
     private val movieDao: MovieDao,
+    private val movieDetailDao: MovieDetailDao
 ) {
     //movieDao
     fun getMovies(): Flow<List<MovieEntity>> = movieDao.getMovies()
@@ -14,4 +17,13 @@ class LocalDataSource(
 
     suspend fun insertMovies(movies: List<MovieEntity>) = movieDao.insertMovie(movies)
     suspend fun deleteMovies() = movieDao.deleteMovies()
+
+    //movieDetailDao
+    fun getMovieDetail(movieId: Int): Flow<MovieDetailEntity> =
+        movieDetailDao.getMovieDetail(movieId)
+
+    suspend fun insertMovieDetail(movieDetail: MovieDetailEntity) =
+        movieDetailDao.insertMovieDetail(movieDetail)
+
+    suspend fun deleteMoviesDetail() = movieDetailDao.deleteMoviesDetail()
 }
