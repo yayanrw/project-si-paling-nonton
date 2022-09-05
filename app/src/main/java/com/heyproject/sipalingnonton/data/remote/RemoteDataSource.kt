@@ -25,7 +25,7 @@ class RemoteDataSource(private val movieApi: MovieApi) {
     }
 
     suspend fun getMovieDetail(movieId: Int): Flow<ApiResponse<MovieDetailDto>> {
-        return flow<ApiResponse<MovieDetailDto>> {
+        return flow {
             try {
                 val response = movieApi.getMovieDetail(movieId)
                 if (response.originalTitle.isNotEmpty()) {

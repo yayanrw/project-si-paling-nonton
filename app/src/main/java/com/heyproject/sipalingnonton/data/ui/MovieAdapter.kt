@@ -10,7 +10,7 @@ import com.heyproject.sipalingnonton.domain.model.Movie
 
 class MovieAdapter(private val movies: List<Movie>?) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    class MovieViewHolder(var binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MovieViewHolder(private var binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie?) {
             binding.apply {
                 imgUrl = """$IMAGE_URL_SMALL${movie?.backdropPath}"""
