@@ -8,6 +8,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.heyproject.sipalingnonton.R
+import com.heyproject.sipalingnonton.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,6 +18,7 @@ class HomeFragment : Fragment(), MenuProvider {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModel()
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +34,17 @@ class HomeFragment : Fragment(), MenuProvider {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = viewModel
+            homeFragment = this@HomeFragment
+            rvMovies.adapter = MovieAdapter(listOf())
+            rvMovies.setHasFixedSize(true)
+        }
+
         viewModel.movie.observe(viewLifecycleOwner) {
-            binding.tvResult.text = it.data.toString()
+            movieAdapter = MovieAdapter(it.data)
+            binding.rvMovies.adapter = movieAdapter
         }
     }
 
