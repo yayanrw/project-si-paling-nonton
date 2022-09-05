@@ -1,7 +1,6 @@
 package com.heyproject.sipalingnonton.presentation.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -92,12 +91,8 @@ class HomeFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
-            R.id.action_search -> {
-                Log.d(TAG, "Search")
-                true
-            }
-            R.id.action_notification -> {
-                Log.d(TAG, "Notif")
+            R.id.action_favorite -> {
+                findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
                 true
             }
             else -> {
