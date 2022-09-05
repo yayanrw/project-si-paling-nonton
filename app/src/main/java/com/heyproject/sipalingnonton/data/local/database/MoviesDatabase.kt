@@ -12,7 +12,7 @@ import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
         MovieEntity::class,
         MovieDetailEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class MoviesDatabase : RoomDatabase() {
