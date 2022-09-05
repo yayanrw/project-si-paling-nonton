@@ -7,6 +7,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.heyproject.sipalingnonton.R
 import com.heyproject.sipalingnonton.core.Resource
 import com.heyproject.sipalingnonton.data.ui.MovieAdapter
@@ -34,14 +35,13 @@ class HomeFragment : Fragment(), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = viewModel
-            homeFragment = this@HomeFragment
-            rvMovies.adapter = MovieAdapter(listOf())
-            rvMovies.setHasFixedSize(true)
-            errorScreen.homeFragment = this@HomeFragment
+        movieAdapter = MovieAdapter()
+        movieAdapter.onItemClick = { selectedData ->
+            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                movieId = selectedData.id,
+                title = selectedData.title
+            )
+            findNavController().navigate(toDetailFragment)
         }
 
         viewModel.movie.observe(viewLifecycleOwner) { movies ->
@@ -51,7 +51,7 @@ class HomeFragment : Fragment(), MenuProvider {
                         View.VISIBLE
                     is Resource.Success -> {
                         binding.circularProgressIndicator.visibility = View.GONE
-                        binding.rvMovies.adapter = MovieAdapter(movies.data)
+                        movieAdapter.setData(movies.data)
                     }
                     is Resource.Error -> {
                         binding.circularProgressIndicator.visibility = View.GONE
@@ -60,6 +60,17 @@ class HomeFragment : Fragment(), MenuProvider {
                             movies.message ?: getString(R.string.oops)
                     }
                 }
+            }
+        }
+
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = viewModel
+            homeFragment = this@HomeFragment
+            errorScreen.homeFragment = this@HomeFragment
+            rvMovies.apply {
+                setHasFixedSize(true)
+                adapter = movieAdapter
             }
         }
     }
