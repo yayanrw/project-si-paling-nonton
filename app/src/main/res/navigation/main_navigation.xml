@@ -42,10 +42,14 @@
         <argument
             android:name="releaseDate"
             app:argType="string"
-            android:defaultValue="releae_date" />
+            android:defaultValue="release_date" />
         <argument
             android:name="backdropPath"
             app:argType="string"
             android:defaultValue="backdrop_path_default" />
+        <argument
+            android:name="voteAverage"
+            app:argType="string"
+            android:defaultValue="vote_average_default" />
     </fragment>
 </navigation>

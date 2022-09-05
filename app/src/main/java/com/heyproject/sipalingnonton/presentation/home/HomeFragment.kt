@@ -42,7 +42,10 @@ class HomeFragment : Fragment(), MenuProvider {
                 title = selectedData.title,
                 isFavorite = selectedData.isFavorite,
                 posterPath = selectedData.posterPath,
-                overview = selectedData.overview
+                overview = selectedData.overview,
+                releaseDate = selectedData.releaseDate,
+                backdropPath = selectedData.backdropPath,
+                voteAverage = selectedData.voteAverage.toString()
             )
             findNavController().navigate(toDetailFragment)
         }

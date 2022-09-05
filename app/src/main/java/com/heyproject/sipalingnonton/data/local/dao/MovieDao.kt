@@ -2,7 +2,6 @@ package com.heyproject.sipalingnonton.data.local.dao
 
 import androidx.room.*
 import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
-import com.heyproject.sipalingnonton.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao
