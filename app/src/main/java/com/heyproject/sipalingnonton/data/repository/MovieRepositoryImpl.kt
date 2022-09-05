@@ -3,13 +3,11 @@ package com.heyproject.sipalingnonton.data.repository
 import com.heyproject.sipalingnonton.core.Resource
 import com.heyproject.sipalingnonton.data.local.LocalDataSource
 import com.heyproject.sipalingnonton.data.remote.RemoteDataSource
-import com.heyproject.sipalingnonton.data.remote.dto.MovieDetailDto
 import com.heyproject.sipalingnonton.data.remote.dto.MovieDto
 import com.heyproject.sipalingnonton.data.utils.ApiResponse
 import com.heyproject.sipalingnonton.data.utils.AppExecutors
 import com.heyproject.sipalingnonton.data.utils.NetworkBoundResource
 import com.heyproject.sipalingnonton.domain.model.Movie
-import com.heyproject.sipalingnonton.domain.model.MovieDetail
 import com.heyproject.sipalingnonton.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -40,22 +38,17 @@ class MovieRepositoryImpl(
             }
         }.asFlow()
 
-    override fun getMovieDetail(movieId: Int): Flow<Resource<MovieDetail>> =
-        object : NetworkBoundResource<MovieDetail, MovieDetailDto>() {
-            override fun loadFromDB(): Flow<MovieDetail> {
-                return localDataSource.getMovieDetail(movieId).map { it.toMovieDetail() }
+    override fun getFavoriteMovies(): Flow<List<Movie>> {
+        return localDataSource.getFavoriteMovie().map { movies ->
+            movies.map {
+                it.toMovie()
             }
+        }
+    }
 
-            override fun shouldFetch(data: MovieDetail?): Boolean {
-                return data == null
-            }
-
-            override suspend fun createCall(): Flow<ApiResponse<MovieDetailDto>> {
-                return remoteDataSource.getMovieDetail(movieId)
-            }
-
-            override suspend fun saveCallResult(data: MovieDetailDto) {
-                localDataSource.insertMovieDetail(data.toMovieDetailEntity())
-            }
-        }.asFlow()
+    override fun setFavoriteMovie(movie: Movie, state: Boolean) {
+        appExecutors.diskIO().execute {
+            localDataSource.setFavoriteMovie(movie.toMovieEntity(), state)
+        }
+    }
 }

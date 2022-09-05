@@ -1,7 +1,8 @@
 package com.heyproject.sipalingnonton.presentation.detail
 
 import androidx.lifecycle.ViewModel
+import com.heyproject.sipalingnonton.domain.usecase.MovieUsecase
 
-class DetailViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class DetailViewModel(private val movieUsecase: MovieUsecase) : ViewModel() {
+
 }

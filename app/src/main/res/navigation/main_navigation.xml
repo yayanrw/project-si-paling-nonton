@@ -27,5 +27,25 @@
             android:name="title"
             android:defaultValue="title_default"
             app:argType="string" />
+        <argument
+            android:name="isFavorite"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="posterPath"
+            app:argType="string"
+            android:defaultValue="default_poster_path" />
+        <argument
+            android:name="overview"
+            app:argType="string"
+            android:defaultValue="default_overview" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string"
+            android:defaultValue="releae_date" />
+        <argument
+            android:name="backdropPath"
+            app:argType="string"
+            android:defaultValue="backdrop_path_default" />
     </fragment>
 </navigation>

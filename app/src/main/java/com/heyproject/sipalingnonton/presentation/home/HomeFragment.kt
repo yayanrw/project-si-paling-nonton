@@ -39,7 +39,10 @@ class HomeFragment : Fragment(), MenuProvider {
         movieAdapter.onItemClick = { selectedData ->
             val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
                 movieId = selectedData.id,
-                title = selectedData.title
+                title = selectedData.title,
+                isFavorite = selectedData.isFavorite,
+                posterPath = selectedData.posterPath,
+                overview = selectedData.overview
             )
             findNavController().navigate(toDetailFragment)
         }

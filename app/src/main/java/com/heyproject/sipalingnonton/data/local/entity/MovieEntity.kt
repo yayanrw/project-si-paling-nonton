@@ -14,6 +14,7 @@ data class MovieEntity(
     @ColumnInfo(name = "poster_path") val posterPath: String,
     @ColumnInfo(name = "release_date") val releaseDate: String,
     @ColumnInfo(name = "vote_average") val voteAverage: Double,
+    @ColumnInfo(name = "is_favorite") var isFavorite: Boolean = false,
     @ColumnInfo(name = "created_at") val createdAt: Long = System.currentTimeMillis()
 ) {
     fun toMovie(): Movie {
@@ -24,7 +25,8 @@ data class MovieEntity(
             posterPath = posterPath,
             releaseDate = releaseDate,
             title = title,
-            voteAverage = voteAverage
+            voteAverage = voteAverage,
+            isFavorite = isFavorite
         )
     }
 }

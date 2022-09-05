@@ -1,10 +1,8 @@
 package com.heyproject.sipalingnonton.data.local.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.heyproject.sipalingnonton.data.local.entity.MovieEntity
+import com.heyproject.sipalingnonton.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,9 +13,15 @@ interface MovieDao {
     @Query("SELECT * FROM movies WHERE title LIKE '%' || :search || '%'")
     fun searchMovies(search: String): Flow<List<MovieEntity>>
 
+    @Query("SELECT * FROM movies where is_favorite = 1")
+    fun getFavoriteMovies(): Flow<List<MovieEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movies: List<MovieEntity>)
 
     @Query("DELETE FROM movies WHERE created_at <= (strftime('%s','now', '-30 day') * 1000)")
     suspend fun deleteMovies()
+
+    @Update
+    fun updateFavoriteMovie(movie: MovieEntity)
 }

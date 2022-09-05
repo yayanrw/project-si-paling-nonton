@@ -44,6 +44,7 @@ data class MovieDto(
             releaseDate = releaseDate,
             title = title,
             voteAverage = voteAverage,
+            isFavorite = false
         )
     }
 
@@ -56,6 +57,7 @@ data class MovieDto(
             posterPath = posterPath,
             releaseDate = releaseDate,
             voteAverage = voteAverage,
+            isFavorite = false
         )
     }
 }
