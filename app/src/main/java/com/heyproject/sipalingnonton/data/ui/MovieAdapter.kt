@@ -10,13 +10,23 @@ import com.heyproject.sipalingnonton.domain.model.Movie
 
 class MovieAdapter(private val movies: List<Movie>?) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    class MovieViewHolder(private var binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+    var onItemClick: ((Movie) -> Unit)? = null
+
+    inner class MovieViewHolder(private var binding: ItemMovieBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie?) {
             binding.apply {
                 imgUrl = """$IMAGE_URL_SMALL${movie?.posterPath}"""
                 tvItemTitle.text = movie?.title
-                tvItemSubtitle.text = binding.root.context.getString(R.string.release_date, movie?.releaseDate)
+                tvItemSubtitle.text =
+                    binding.root.context.getString(R.string.release_date, movie?.releaseDate)
                 executePendingBindings()
+            }
+        }
+
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(movies!![adapterPosition])
             }
         }
     }
