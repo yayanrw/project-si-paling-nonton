@@ -17,6 +17,15 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.heyproject.sipalingnonton.presentation.detail.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        android:label="{title}"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="movieId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            android:defaultValue="title_default"
+            app:argType="string" />
+    </fragment>
 </navigation>
