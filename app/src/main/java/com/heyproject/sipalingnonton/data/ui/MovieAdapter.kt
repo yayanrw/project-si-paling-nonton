@@ -1,5 +1,6 @@
 package com.heyproject.sipalingnonton.data.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,9 +9,18 @@ import com.heyproject.sipalingnonton.core.IMAGE_URL_SMALL
 import com.heyproject.sipalingnonton.databinding.ItemMovieBinding
 import com.heyproject.sipalingnonton.domain.model.Movie
 
-class MovieAdapter(private val movies: List<Movie>?) :
+class MovieAdapter :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    private var movies = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newMovies: List<Movie>?) {
+        if (newMovies.isNullOrEmpty()) return
+        movies.clear()
+        movies.addAll(newMovies)
+        notifyDataSetChanged()
+    }
 
     inner class MovieViewHolder(private var binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,7 +36,7 @@ class MovieAdapter(private val movies: List<Movie>?) :
 
         init {
             binding.root.setOnClickListener {
-                onItemClick?.invoke(movies!![adapterPosition])
+                onItemClick?.invoke(movies[adapterPosition])
             }
         }
     }
@@ -37,9 +47,9 @@ class MovieAdapter(private val movies: List<Movie>?) :
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies?.get(position)
+        val movie = movies.get(position)
         holder.bind(movie)
     }
 
-    override fun getItemCount(): Int = movies?.size ?: 0
+    override fun getItemCount(): Int = movies.size
 }
