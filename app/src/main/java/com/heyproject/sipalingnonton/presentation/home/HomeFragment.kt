@@ -8,6 +8,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.heyproject.sipalingnonton.R
+import com.heyproject.sipalingnonton.core.Resource
 import com.heyproject.sipalingnonton.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -40,11 +41,26 @@ class HomeFragment : Fragment(), MenuProvider {
             homeFragment = this@HomeFragment
             rvMovies.adapter = MovieAdapter(listOf())
             rvMovies.setHasFixedSize(true)
+            errorScreen.homeFragment = this@HomeFragment
         }
 
-        viewModel.movie.observe(viewLifecycleOwner) {
-            movieAdapter = MovieAdapter(it.data)
-            binding.rvMovies.adapter = movieAdapter
+        viewModel.movie.observe(viewLifecycleOwner) { movies ->
+            if (movies != null) {
+                when (movies) {
+                    is Resource.Loading -> binding.circularProgressIndicator.visibility =
+                        View.VISIBLE
+                    is Resource.Success -> {
+                        binding.circularProgressIndicator.visibility = View.GONE
+                        binding.rvMovies.adapter = MovieAdapter(movies.data)
+                    }
+                    is Resource.Error -> {
+                        binding.circularProgressIndicator.visibility = View.GONE
+                        binding.errorScreen.root.visibility = View.VISIBLE
+                        binding.errorScreen.tvError.text =
+                            movies.message ?: getString(R.string.oops)
+                    }
+                }
+            }
         }
     }
 
@@ -71,5 +87,9 @@ class HomeFragment : Fragment(), MenuProvider {
                 false
             }
         }
+    }
+
+    fun fetchMovies() {
+
     }
 }
