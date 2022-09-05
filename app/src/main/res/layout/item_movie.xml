@@ -10,15 +10,11 @@
             type="String" />
     </data>
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        app:cardCornerRadius="16dp">
+        android:layout_margin="@dimen/half_side_margin"
+        app:cardCornerRadius="@dimen/side_margin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,7 +47,7 @@
                 android:id="@+id/top_space"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="@dimen/side_margin"
                 app:layout_constraintBottom_toTopOf="@+id/tv_item_title"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -59,8 +55,8 @@
                 android:id="@+id/tv_item_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginEnd="@dimen/side_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#FFFFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/tv_item_subtitle"
@@ -72,9 +68,9 @@
                 android:id="@+id/tv_item_subtitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginEnd="@dimen/side_margin"
+                android:layout_marginBottom="@dimen/side_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#B3FFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_item_image"
