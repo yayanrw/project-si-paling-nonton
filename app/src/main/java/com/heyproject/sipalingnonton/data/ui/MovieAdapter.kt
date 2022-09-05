@@ -3,6 +3,7 @@ package com.heyproject.sipalingnonton.data.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.heyproject.sipalingnonton.R
 import com.heyproject.sipalingnonton.core.IMAGE_URL_SMALL
 import com.heyproject.sipalingnonton.databinding.ItemMovieBinding
 import com.heyproject.sipalingnonton.domain.model.Movie
@@ -14,7 +15,7 @@ class MovieAdapter(private val movies: List<Movie>?) :
             binding.apply {
                 imgUrl = """$IMAGE_URL_SMALL${movie?.backdropPath}"""
                 tvItemTitle.text = movie?.title
-                tvItemSubtitle.text = movie?.releaseDate
+                tvItemSubtitle.text = binding.root.context.getString(R.string.release_date, movie?.releaseDate)
                 executePendingBindings()
             }
         }
