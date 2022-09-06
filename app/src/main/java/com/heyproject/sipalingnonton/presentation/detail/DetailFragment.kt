@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.heyproject.sipalingnonton.R
 import com.heyproject.sipalingnonton.core.IMAGE_URL_ORIGIN
 import com.heyproject.sipalingnonton.databinding.FragmentDetailBinding
@@ -19,6 +20,7 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private lateinit var movie: Movie
+    private var isFavorite: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,28 +46,37 @@ class DetailFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             detailFragment = this@DetailFragment
-            content.movie = movie
+            movieDetail = movie
             imgUrl = """$IMAGE_URL_ORIGIN${args.posterPath}"""
             executePendingBindings()
         }
+        isFavorite = movie.isFavorite
         setFavIcon(movie.isFavorite)
     }
 
     fun setFavoriteMovie() {
-        viewModel.setFavoriteTourism(movie, !movie.isFavorite)
-        setFavIcon(!movie.isFavorite)
+        isFavorite = !isFavorite
+        viewModel.setFavoriteTourism(movie, isFavorite)
+        setFavIcon(isFavorite)
+        if (isFavorite) {
+            Snackbar.make(binding.root, getString(R.string.success_add), Snackbar.LENGTH_SHORT)
+                .show()
+        } else {
+            Snackbar.make(binding.root, getString(R.string.success_remove), Snackbar.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun setFavIcon(statusFavorite: Boolean) {
         if (statusFavorite) {
-            binding.fab.setImageDrawable(
+            binding.ibFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
                     requireContext(),
                     R.drawable.ic_baseline_favorite_24
                 )
             )
         } else {
-            binding.fab.setImageDrawable(
+            binding.ibFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
                     requireContext(),
                     R.drawable.ic_baseline_favorite_border_24
