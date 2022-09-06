@@ -2,7 +2,7 @@
 buildscript {
     ext {
         //kotlin
-        kotlin_version = '1.4.10'
+        kotlin_version = '1.7.10'
         core_ktx_version = '1.8.0'
         coroutines_version = '1.6.1'
         coroutines_lifecycle_version = '2.5.1'
