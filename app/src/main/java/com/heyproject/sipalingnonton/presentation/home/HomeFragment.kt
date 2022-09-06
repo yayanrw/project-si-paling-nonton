@@ -1,6 +1,7 @@
 package com.heyproject.sipalingnonton.presentation.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
@@ -92,7 +93,8 @@ class HomeFragment : Fragment(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.action_favorite -> {
-                findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
+                val uri = Uri.parse("sipalingnonton://favorite")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
                 true
             }
             R.id.action_setting -> {

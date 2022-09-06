@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.favorite.FavoriteFragment">
+    tools:context="com.heyproject.favorite.presentation.favorite.FavoriteFragment">
 
     <data>
 
         <variable
             name="favoriteFragment"
-            type="com.heyproject.sipalingnonton.presentation.favorite.FavoriteFragment" />
+            type="com.heyproject.favorite.presentation.favorite.FavoriteFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

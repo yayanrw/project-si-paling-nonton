@@ -22,6 +22,8 @@
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/drawable/ic_broken_image.xml" value="0.1205" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/drawable/loading_img.xml" value="0.1205" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/layout/item_movie.xml" value="0.15729166666666666" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/favorite/src/main/res/layout/activity_favorite.xml" value="0.17916666666666667" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/favorite/src/main/res/layout/fragment_favorite.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,4 +1,4 @@
-package com.heyproject.sipalingnonton.presentation.favorite
+package com.heyproject.favorite.presentation.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
