@@ -1,6 +1,8 @@
 package com.heyproject.sipalingnonton.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -95,13 +97,13 @@ class HomeFragment : Fragment(), MenuProvider {
                 findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
                 true
             }
+            R.id.action_setting -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                true
+            }
             else -> {
                 false
             }
         }
-    }
-
-    fun fetchMovies() {
-
     }
 }
