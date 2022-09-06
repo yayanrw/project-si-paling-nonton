@@ -15,7 +15,7 @@
 
         <variable
             name="movieDetail"
-            type="com.heyproject.sipalingnonton.domain.model.Movie" />
+            type="com.heyproject.core.domain.model.Movie" />
     </data>
 
     <ScrollView

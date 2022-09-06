@@ -9,13 +9,11 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import com.heyproject.core.core.Resource
+import com.heyproject.core.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.R
-import com.heyproject.sipalingnonton.core.Resource
-import com.heyproject.sipalingnonton.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-const val TAG = "HomeFragment"
 
 class HomeFragment : Fragment(), MenuProvider {
     private var _binding: FragmentHomeBinding? = null

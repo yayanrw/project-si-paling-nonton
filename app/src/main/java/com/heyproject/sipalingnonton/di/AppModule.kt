@@ -1,7 +1,7 @@
-package com.heyproject.sipalingnonton.di
+package com.heyproject.core.di
 
-import com.heyproject.sipalingnonton.domain.usecase.MovieInteractor
-import com.heyproject.sipalingnonton.domain.usecase.MovieUsecase
+import com.heyproject.core.domain.usecase.MovieInteractor
+import com.heyproject.core.domain.usecase.MovieUsecase
 import com.heyproject.sipalingnonton.presentation.detail.DetailViewModel
 import com.heyproject.sipalingnonton.presentation.favorite.FavoriteViewModel
 import com.heyproject.sipalingnonton.presentation.home.HomeViewModel

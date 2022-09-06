@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.heyproject.sipalingnonton.data.ui.MovieAdapter
+import com.heyproject.core.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.databinding.FragmentFavoriteBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

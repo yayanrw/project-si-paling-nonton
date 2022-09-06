@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.heyproject.core.core.IMAGE_URL_ORIGIN
+import com.heyproject.core.domain.model.Movie
 import com.heyproject.sipalingnonton.R
-import com.heyproject.sipalingnonton.core.IMAGE_URL_ORIGIN
 import com.heyproject.sipalingnonton.databinding.FragmentDetailBinding
-import com.heyproject.sipalingnonton.domain.model.Movie
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : Fragment() {
