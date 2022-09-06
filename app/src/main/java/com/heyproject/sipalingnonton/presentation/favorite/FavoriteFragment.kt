@@ -44,6 +44,13 @@ class FavoriteFragment : Fragment() {
 
         viewModel.favoriteMovies.observe(viewLifecycleOwner) { favoriteMovies ->
             movieAdapter.setData(favoriteMovies)
+            if (favoriteMovies.isEmpty()) {
+                binding.rvMovies.visibility = View.GONE
+                binding.tvNodata.visibility = View.VISIBLE
+            } else {
+                binding.tvNodata.visibility = View.GONE
+                binding.rvMovies.visibility = View.VISIBLE
+            }
         }
 
         binding.apply {
