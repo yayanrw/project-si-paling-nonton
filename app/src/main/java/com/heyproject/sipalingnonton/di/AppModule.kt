@@ -1,4 +1,4 @@
-package com.heyproject.core.di
+package com.heyproject.sipalingnonton.di
 
 import com.heyproject.core.domain.usecase.MovieInteractor
 import com.heyproject.core.domain.usecase.MovieUsecase

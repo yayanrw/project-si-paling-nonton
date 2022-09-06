@@ -35,18 +35,6 @@ data class MovieDto(
     @SerializedName("vote_count")
     val voteCount: Int
 ) {
-    fun toMovie(): Movie {
-        return Movie(
-            backdropPath = backdropPath,
-            id = id,
-            overview = overview,
-            posterPath = posterPath,
-            releaseDate = releaseDate,
-            title = title,
-            voteAverage = voteAverage,
-            isFavorite = false
-        )
-    }
 
     fun toMovieEntity(): MovieEntity {
         return MovieEntity(

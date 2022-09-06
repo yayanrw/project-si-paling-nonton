@@ -7,7 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.heyproject.favorite.databinding.ActivityFavoriteBinding
 import com.heyproject.favorite.di.favoriteModule
-import com.heyproject.sipalingnonton.R
 import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {

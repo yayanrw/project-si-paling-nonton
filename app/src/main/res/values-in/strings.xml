@@ -10,8 +10,7 @@
     <string name="release_date_text">Tanggal dirilis:</string>
     <string name="success_add">Berhasil menambahkan ke favorit</string>
     <string name="success_remove">Berhasil menghapus dari favorit</string>
-    <string name="favorite_movies">Film Favorite</string>
+    <string name="favorite_movies">Film Favorit</string>
     <string name="no_favorite_movies_available">Belum ada film favorit</string>
     <string name="setting">Pengaturan</string>
-    <string name="title_favorite">Film Favorite</string>
 </resources>

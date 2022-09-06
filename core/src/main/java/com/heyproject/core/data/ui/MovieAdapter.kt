@@ -47,7 +47,7 @@ class MovieAdapter :
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies.get(position)
+        val movie = movies[position]
         holder.bind(movie)
     }
 

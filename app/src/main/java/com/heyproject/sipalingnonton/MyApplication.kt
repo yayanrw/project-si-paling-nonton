@@ -2,6 +2,8 @@ package com.heyproject.sipalingnonton
 
 import android.app.Application
 import com.heyproject.core.di.*
+import com.heyproject.sipalingnonton.di.usecaseModule
+import com.heyproject.sipalingnonton.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
