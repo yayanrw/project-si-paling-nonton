@@ -5,12 +5,13 @@
       <map>
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.144" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.144" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.144" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_notification.xml" value="0.1" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/content_detail_movie.xml" value="0.2" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/error_screen.xml" value="0.4" />
-        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_detail_layout.xml" value="0.13489583333333333" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/item_movie.xml" value="0.176" />

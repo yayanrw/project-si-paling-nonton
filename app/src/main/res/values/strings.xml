@@ -8,4 +8,5 @@
     <string name="refresh">Refresh</string>
     <string name="oops">Oops, something went wrong. Please try again.</string>
     <string name="menu_favorite">Favorite Menu</string>
+    <string name="favorite_unfavorite">Favorite/Unfavorite</string>
 </resources>
