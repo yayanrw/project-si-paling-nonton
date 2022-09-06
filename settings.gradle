@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Si Paling Nonton"
 include ':app'
 include ':core'
+include ':favorite'

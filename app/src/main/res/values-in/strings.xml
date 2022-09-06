@@ -13,4 +13,5 @@
     <string name="favorite_movies">Film Favorite</string>
     <string name="no_favorite_movies_available">Belum ada film favorit</string>
     <string name="setting">Pengaturan</string>
+    <string name="title_favorite">Film Favorite</string>
 </resources>
