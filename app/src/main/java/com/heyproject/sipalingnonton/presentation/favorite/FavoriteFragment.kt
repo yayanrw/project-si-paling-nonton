@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.heyproject.sipalingnonton.data.ui.MovieAdapter
 import com.heyproject.sipalingnonton.databinding.FragmentFavoriteBinding
-import com.heyproject.sipalingnonton.presentation.home.HomeFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
@@ -29,16 +28,17 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
-            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
-                movieId = selectedData.id,
-                title = selectedData.title,
-                isFavorite = selectedData.isFavorite,
-                posterPath = selectedData.posterPath,
-                overview = selectedData.overview,
-                releaseDate = selectedData.releaseDate,
-                backdropPath = selectedData.backdropPath,
-                voteAverage = selectedData.voteAverage.toString()
-            )
+            val toDetailFragment =
+                FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(
+                    movieId = selectedData.id,
+                    title = selectedData.title,
+                    isFavorite = selectedData.isFavorite,
+                    posterPath = selectedData.posterPath,
+                    overview = selectedData.overview,
+                    releaseDate = selectedData.releaseDate,
+                    backdropPath = selectedData.backdropPath,
+                    voteAverage = selectedData.voteAverage.toString()
+                )
             findNavController().navigate(toDetailFragment)
         }
 
