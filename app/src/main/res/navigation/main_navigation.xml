@@ -58,6 +58,6 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.heyproject.sipalingnonton.presentation.favorite.FavoriteFragment"
-        android:label="fragment_favorite"
+        android:label="@string/favorite_movies"
         tools:layout="@layout/fragment_favorite" />
 </navigation>

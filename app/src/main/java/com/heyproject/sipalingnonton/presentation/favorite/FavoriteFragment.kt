@@ -1,30 +1,64 @@
 package com.heyproject.sipalingnonton.presentation.favorite
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.heyproject.sipalingnonton.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.heyproject.sipalingnonton.data.ui.MovieAdapter
+import com.heyproject.sipalingnonton.databinding.FragmentFavoriteBinding
+import com.heyproject.sipalingnonton.presentation.home.HomeFragmentDirections
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
+    private var _binding: FragmentFavoriteBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: FavoriteViewModel by viewModel()
+    private lateinit var movieAdapter: MovieAdapter
 
-    companion object {
-        fun newInstance() = FavoriteFragment()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private lateinit var viewModel: FavoriteViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        movieAdapter = MovieAdapter()
+        movieAdapter.onItemClick = { selectedData ->
+            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                movieId = selectedData.id,
+                title = selectedData.title,
+                isFavorite = selectedData.isFavorite,
+                posterPath = selectedData.posterPath,
+                overview = selectedData.overview,
+                releaseDate = selectedData.releaseDate,
+                backdropPath = selectedData.backdropPath,
+                voteAverage = selectedData.voteAverage.toString()
+            )
+            findNavController().navigate(toDetailFragment)
+        }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        viewModel.favoriteMovies.observe(viewLifecycleOwner) { favoriteMovies ->
+            movieAdapter.setData(favoriteMovies)
+        }
+
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            favoriteFragment = this@FavoriteFragment
+            rvMovies.apply {
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
+        }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

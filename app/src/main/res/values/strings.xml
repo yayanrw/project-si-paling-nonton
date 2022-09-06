@@ -12,4 +12,5 @@
     <string name="release_date_text">Release date:</string>
     <string name="success_add">Successfully added to favorite</string>
     <string name="success_remove">Successfully remove from favorite</string>
+    <string name="favorite_movies">Favorite Movies</string>
 </resources>
