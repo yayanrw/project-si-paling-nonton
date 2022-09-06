@@ -26,7 +26,7 @@ class MovieRepositoryImpl(
             }
 
             override fun shouldFetch(data: List<Movie>?): Boolean {
-                return data.isNullOrEmpty()
+                return true
             }
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieDto>>> {
