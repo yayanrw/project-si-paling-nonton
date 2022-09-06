@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">Si Paling Nonton</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="notification">Notification</string>
+    <string name="app_name">The Most Watched</string>
     <string name="image_description">This is description of the movie</string>
     <string name="release_date">Release date: %1$s</string>
     <string name="refresh">Refresh</string>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Si Paling Nonton</string>
+    <string name="image_description">Ini adalah deskripsi dari film</string>
+    <string name="release_date">Tanggal dirilis: %1$s</string>
+    <string name="refresh">Segarkan</string>
+    <string name="oops">Waduh, ada masalah. Coba lagi ygy.</string>
+    <string name="menu_favorite">Menu Favorit</string>
+    <string name="favorite_unfavorite">Favorit/Tidak Favorite</string>
+    <string name="release_date_text">Tanggal dirilis:</string>
+    <string name="success_add">Berhasil menambahkan ke favorit</string>
+    <string name="success_remove">Berhasil menghapus dari favorit</string>
+    <string name="favorite_movies">Film Favorite</string>
+    <string name="no_favorite_movies_available">Belum ada film favorit</string>
+    <string name="setting">Pengaturan</string>
+</resources>
