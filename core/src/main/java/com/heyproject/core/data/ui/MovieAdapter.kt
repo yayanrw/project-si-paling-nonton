@@ -11,7 +11,7 @@ import com.heyproject.core.domain.model.Movie
 
 class MovieAdapter :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    private var movies = ArrayList<Movie>()
+    private val movies = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
 
     @SuppressLint("NotifyDataSetChanged")
