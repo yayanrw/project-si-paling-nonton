@@ -1,6 +1,7 @@
 package com.heyproject.core.di
 
 import androidx.room.Room
+import com.heyproject.core.BuildConfig
 import com.heyproject.core.core.BASE_URL
 import com.heyproject.core.data.local.LocalDataSource
 import com.heyproject.core.data.local.database.MoviesDatabase
@@ -29,8 +30,14 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        val loggingInterceptor =
+            if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            } else {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+            }
         OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .build()
