@@ -3,11 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.144" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.144" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.144" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.144" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_notification.xml" value="0.1" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_home.xml" value="0.10989583333333333" />
-        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/menu/options_menu.xml" value="0.23333333333333334" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/content_detail_movie.xml" value="0.2" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/error_screen.xml" value="0.4" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_detail.xml" value="0.536" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_detail_layout.xml" value="0.13489583333333333" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_favorite.xml" value="0.22826086956521738" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/layout/item_movie.xml" value="0.176" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/menu-v26/options_menu.xml" value="0.1" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/app/src/main/res/menu/options_menu.xml" value="0.1" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/drawable/ic_broken_image.xml" value="0.1205" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/drawable/loading_img.xml" value="0.1205" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/core/src/main/res/layout/item_movie.xml" value="0.15729166666666666" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/favorite/src/main/res/layout/activity_favorite.xml" value="0.17916666666666667" />
+        <entry key="..\:/Project/AndroidStudio/SiPalingNonton/favorite/src/main/res/layout/fragment_favorite.xml" value="0.1" />
       </map>
     </option>
   </component>

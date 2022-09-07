@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">The Most Watched</string>
+    <string name="image_description">This is description of the movie</string>
+    <string name="release_date">Release date: %1$s</string>
+    <string name="refresh">Refresh</string>
+    <string name="oops">Oops, something went wrong. Please try again.</string>
+    <string name="menu_favorite">Favorite Menu</string>
+    <string name="favorite_unfavorite">Favorite/Unfavorite</string>
+    <string name="release_date_text">Release date:</string>
+    <string name="success_add">Successfully added to favorite</string>
+    <string name="success_remove">Successfully remove from favorite</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="no_favorite_movies_available">No favorite movies available</string>
+    <string name="setting">Setting</string>
+</resources>
