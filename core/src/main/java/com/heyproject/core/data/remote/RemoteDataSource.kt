@@ -1,5 +1,6 @@
 package com.heyproject.core.data.remote
 
+import com.heyproject.core.BuildConfig
 import com.heyproject.core.data.remote.dto.MovieDto
 import com.heyproject.core.data.utils.ApiResponse
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,8 @@ class RemoteDataSource(private val movieApi: MovieApi) {
     suspend fun getMovies(): Flow<ApiResponse<List<MovieDto>>> {
         return flow {
             try {
-                val response = movieApi.getMovies(1, null, null, null)
+                val token = BuildConfig.API_KEY
+                val response = movieApi.getMovies(1, null, null, null, token)
                 if (response.results.isNotEmpty()) {
                     emit(ApiResponse.Success(response.results))
                 } else {
