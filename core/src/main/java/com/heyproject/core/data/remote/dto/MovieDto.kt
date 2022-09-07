@@ -3,7 +3,6 @@ package com.heyproject.core.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import com.heyproject.core.data.local.entity.MovieEntity
-import com.heyproject.core.domain.model.Movie
 
 data class MovieDto(
     @SerializedName("adult")
