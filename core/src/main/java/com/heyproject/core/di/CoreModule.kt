@@ -3,6 +3,7 @@ package com.heyproject.core.di
 import androidx.room.Room
 import com.heyproject.core.BuildConfig
 import com.heyproject.core.core.BASE_URL
+import com.heyproject.core.core.TIMEOUT_CONNECTION
 import com.heyproject.core.data.local.LocalDataSource
 import com.heyproject.core.data.local.database.MoviesDatabase
 import com.heyproject.core.data.remote.MovieApi
@@ -38,8 +39,8 @@ val networkModule = module {
             }
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
+            .readTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
             .build()
     }
     single {
