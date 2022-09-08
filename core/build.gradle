@@ -15,6 +15,7 @@ android {
         versionName "1.0"
 
         buildConfigField("String", "API_KEY", "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNWQ3ZDcwN2M1ZWY1NWZiNWI4MjhhNDE2ZmEzZGNiOSIsInN1YiI6IjYyNzI5ZjFhYTMxM2I4MTJjYmRlZDk4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.miNA7aldD4w3I3oIQRPaE0OXOZukXrThif8lyUkt5ZM\"")
+        buildConfigField("String", "SQLITE_KEY", "\"yM&jgHAeaJH4ZWYV\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,4 +60,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$coroutines_lifecycle_version"
+
+    //security
+    implementation "net.zetetic:android-database-sqlcipher:$sqlchipper_version"
+    implementation "androidx.sqlite:sqlite-ktx:$sqllitektx_version"
 }
