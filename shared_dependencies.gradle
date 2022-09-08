@@ -40,4 +40,7 @@ dependencies {
 
     //library
     implementation("io.coil-kt:coil:$coil_version")
+
+    //leakcanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
 }
