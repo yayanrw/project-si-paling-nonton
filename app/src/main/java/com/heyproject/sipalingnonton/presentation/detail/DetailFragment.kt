@@ -32,22 +32,13 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movie = Movie(
-            id = args.movieId,
-            title = args.title,
-            isFavorite = args.isFavorite,
-            posterPath = args.posterPath,
-            overview = args.overview,
-            backdropPath = args.backdropPath,
-            releaseDate = args.releaseDate,
-            voteAverage = args.voteAverage.toDouble()
-        )
+        movie = args.movie
 
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             detailFragment = this@DetailFragment
             movieDetail = movie
-            imgUrl = """$IMAGE_URL_ORIGIN${args.posterPath}"""
+            imgUrl = """$IMAGE_URL_ORIGIN${args.movie.posterPath}"""
             executePendingBindings()
         }
         isFavorite = movie.isFavorite
