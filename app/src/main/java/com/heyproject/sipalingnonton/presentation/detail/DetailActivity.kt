@@ -2,7 +2,6 @@ package com.heyproject.sipalingnonton.presentation.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.navigation.navArgs
 import com.google.android.material.snackbar.Snackbar
