@@ -1,20 +1,29 @@
 package com.heyproject.favorite.presentation.favorite
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.heyproject.core.data.ui.MovieAdapter
 import com.heyproject.favorite.databinding.FragmentFavoriteBinding
+import com.heyproject.favorite.di.favoriteModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class FavoriteFragment : Fragment() {
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
     private val viewModel: FavoriteViewModel by viewModel()
     private lateinit var movieAdapter: MovieAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadKoinModules(favoriteModule)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,18 +37,9 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
-            val toDetailFragment =
-                FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(
-                    movieId = selectedData.id,
-                    title = selectedData.title,
-                    isFavorite = selectedData.isFavorite,
-                    posterPath = selectedData.posterPath,
-                    overview = selectedData.overview,
-                    releaseDate = selectedData.releaseDate,
-                    backdropPath = selectedData.backdropPath,
-                    voteAverage = selectedData.voteAverage.toString()
-                )
-            findNavController().navigate(toDetailFragment)
+            val uri = Uri.parse("sipalingnonton://detail_movie")
+            val intent = (Intent(Intent.ACTION_VIEW, uri).putExtra("movie", selectedData))
+            startActivity(intent)
         }
 
         viewModel.favoriteMovies.observe(viewLifecycleOwner) { favoriteMovies ->
@@ -67,5 +67,4 @@ class FavoriteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

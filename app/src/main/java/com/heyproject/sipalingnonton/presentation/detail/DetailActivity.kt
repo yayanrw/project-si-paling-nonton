@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private val args: DetailFragmentArgs by navArgs()
+    private val args: DetailActivityArgs by navArgs()
     private val viewModel: DetailViewModel by viewModel()
     private lateinit var movie: Movie
     private var isFavorite: Boolean = false

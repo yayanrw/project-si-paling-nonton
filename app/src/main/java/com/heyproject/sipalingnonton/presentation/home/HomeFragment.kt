@@ -37,7 +37,8 @@ class HomeFragment : Fragment(), MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
-            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+
+            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailActivity(
                 movie = selectedData
             )
             findNavController().navigate(toDetailFragment)
@@ -50,7 +51,15 @@ class HomeFragment : Fragment(), MenuProvider {
                         View.VISIBLE
                     is Resource.Success -> {
                         binding.circularProgressIndicator.visibility = View.GONE
-                        movieAdapter.setData(movies.data)
+                        if (movies.data.isNullOrEmpty()) {
+                            movieAdapter.setData(listOf())
+                            binding.rvMovies.visibility = View.GONE
+                            binding.tvNodata.visibility = View.VISIBLE
+                        } else {
+                            movieAdapter.setData(movies.data)
+                            binding.tvNodata.visibility = View.GONE
+                            binding.rvMovies.visibility = View.VISIBLE
+                        }
                     }
                     is Resource.Error -> {
                         binding.circularProgressIndicator.visibility = View.GONE
