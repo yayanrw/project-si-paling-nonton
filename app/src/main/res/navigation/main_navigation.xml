@@ -13,16 +13,27 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.heyproject.sipalingnonton.presentation.detail.DetailFragment"
         tools:layout="@layout/fragment_detail">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="app://detail_fragment/{movie}" />
         <argument
             android:name="movie"
             app:argType="com.heyproject.core.domain.model.Movie" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="sipalingnonton://app/detail_fragment/{movie}" />
     </fragment>
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.heyproject.sipalingnonton.presentation.detail.DetailActivity"
+        android:label="DetailActivity" >
+        <argument
+            android:name="movie"
+            app:argType="com.heyproject.core.domain.model.Movie" />
+    </activity>
 </navigation>
