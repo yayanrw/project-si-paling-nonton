@@ -85,17 +85,6 @@ class HomeFragment : Fragment(), MenuProvider {
         super.onDestroy()
         _binding = null
         _binding?.unbind()
-        _binding?.lifecycleOwner = null
-        _binding?.viewModel = null
-        _binding?.homeFragment = null
-
-
-        _binding?.errorScreen?.homeFragment = null
-        _binding?.rvMovies?.adapter = null
-        activity?.run {
-            supportFragmentManager.beginTransaction().remove(this@HomeFragment)
-                .commitAllowingStateLoss()
-        }
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
