@@ -37,15 +37,8 @@ class HomeFragment : Fragment(), MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
-            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
-                movieId = selectedData.id,
-                title = selectedData.title,
-                isFavorite = selectedData.isFavorite,
-                posterPath = selectedData.posterPath,
-                overview = selectedData.overview,
-                releaseDate = selectedData.releaseDate,
-                backdropPath = selectedData.backdropPath,
-                voteAverage = selectedData.voteAverage.toString()
+            val toDetailFragment = HomeFragmentDirections.actionHomeFragmentToDetailActivity(
+                movie = selectedData
             )
             findNavController().navigate(toDetailFragment)
         }
@@ -57,7 +50,14 @@ class HomeFragment : Fragment(), MenuProvider {
                         View.VISIBLE
                     is Resource.Success -> {
                         binding.circularProgressIndicator.visibility = View.GONE
-                        movieAdapter.setData(movies.data)
+                        movieAdapter.submitList(movies.data)
+                        if (movies.data.isNullOrEmpty()) {
+                            binding.rvMovies.visibility = View.GONE
+                            binding.tvNodata.visibility = View.VISIBLE
+                        } else {
+                            binding.tvNodata.visibility = View.GONE
+                            binding.rvMovies.visibility = View.VISIBLE
+                        }
                     }
                     is Resource.Error -> {
                         binding.circularProgressIndicator.visibility = View.GONE
@@ -84,6 +84,18 @@ class HomeFragment : Fragment(), MenuProvider {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        _binding?.unbind()
+        _binding?.lifecycleOwner = null
+        _binding?.viewModel = null
+        _binding?.homeFragment = null
+
+
+        _binding?.errorScreen?.homeFragment = null
+        _binding?.rvMovies?.adapter = null
+        activity?.run {
+            supportFragmentManager.beginTransaction().remove(this@HomeFragment)
+                .commitAllowingStateLoss()
+        }
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {

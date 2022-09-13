@@ -30,9 +30,14 @@ buildscript {
 
         //library
         coil_version = '2.2.0'
+        leakcanary_version = '2.7'
 
         //dependency injection
         koin_version = '3.2.0'
+
+        //security
+        sqlchipper_version = '4.4.0'
+        sqllitektx_version = '2.2.0'
     }
     repositories {
         google()

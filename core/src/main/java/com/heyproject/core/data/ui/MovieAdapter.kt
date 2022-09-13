@@ -1,26 +1,17 @@
 package com.heyproject.core.data.ui
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.heyproject.core.R
 import com.heyproject.core.core.IMAGE_URL_SMALL
 import com.heyproject.core.databinding.ItemMovieBinding
 import com.heyproject.core.domain.model.Movie
 
-class MovieAdapter :
-    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    private val movies = ArrayList<Movie>()
+class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(DiffCallback) {
     var onItemClick: ((Movie) -> Unit)? = null
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setData(newMovies: List<Movie>?) {
-        if (newMovies.isNullOrEmpty()) return
-        movies.clear()
-        movies.addAll(newMovies)
-        notifyDataSetChanged()
-    }
 
     inner class MovieViewHolder(private var binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -36,7 +27,7 @@ class MovieAdapter :
 
         init {
             binding.root.setOnClickListener {
-                onItemClick?.invoke(movies[adapterPosition])
+                onItemClick?.invoke(getItem(adapterPosition))
             }
         }
     }
@@ -47,9 +38,17 @@ class MovieAdapter :
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies[position]
+        val movie = getItem(position)
         holder.bind(movie)
     }
 
-    override fun getItemCount(): Int = movies.size
+    companion object DiffCallback : DiffUtil.ItemCallback<Movie>() {
+        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+            return oldItem.title == newItem.title && oldItem.releaseDate == newItem.releaseDate
+        }
+    }
 }

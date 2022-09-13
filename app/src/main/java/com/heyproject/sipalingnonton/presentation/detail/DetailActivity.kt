@@ -1,53 +1,35 @@
 package com.heyproject.sipalingnonton.presentation.detail
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.heyproject.core.core.IMAGE_URL_ORIGIN
 import com.heyproject.core.domain.model.Movie
 import com.heyproject.sipalingnonton.R
-import com.heyproject.sipalingnonton.databinding.FragmentDetailBinding
+import com.heyproject.sipalingnonton.databinding.ActivityDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailFragment : Fragment() {
+class DetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDetailBinding
+    private val args: DetailActivityArgs by navArgs()
     private val viewModel: DetailViewModel by viewModel()
-    private val args: DetailFragmentArgs by navArgs()
-    private var _binding: FragmentDetailBinding? = null
-    private val binding get() = _binding!!
     private lateinit var movie: Movie
     private var isFavorite: Boolean = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        movie = Movie(
-            id = args.movieId,
-            title = args.title,
-            isFavorite = args.isFavorite,
-            posterPath = args.posterPath,
-            overview = args.overview,
-            backdropPath = args.backdropPath,
-            releaseDate = args.releaseDate,
-            voteAverage = args.voteAverage.toDouble()
-        )
-
+        movie = args.movie
+        supportActionBar?.title = movie.title
         binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            detailFragment = this@DetailFragment
+            lifecycleOwner = this@DetailActivity
+            detailActivity = this@DetailActivity
             movieDetail = movie
-            imgUrl = """$IMAGE_URL_ORIGIN${args.posterPath}"""
+            imgUrl = """$IMAGE_URL_ORIGIN${args.movie.posterPath}"""
             executePendingBindings()
         }
         isFavorite = movie.isFavorite
@@ -71,22 +53,17 @@ class DetailFragment : Fragment() {
         if (statusFavorite) {
             binding.ibFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
-                    requireContext(),
+                    this,
                     R.drawable.ic_baseline_favorite_24
                 )
             )
         } else {
             binding.ibFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
-                    requireContext(),
+                    this,
                     R.drawable.ic_baseline_favorite_border_24
                 )
             )
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

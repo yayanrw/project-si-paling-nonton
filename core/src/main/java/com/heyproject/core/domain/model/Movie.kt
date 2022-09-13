@@ -1,7 +1,10 @@
 package com.heyproject.core.domain.model
 
+import android.os.Parcelable
 import com.heyproject.core.data.local.entity.MovieEntity
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Movie(
     val backdropPath: String,
     val id: Int,
@@ -11,7 +14,7 @@ data class Movie(
     val title: String,
     val voteAverage: Double,
     val isFavorite: Boolean
-) {
+) : Parcelable {
     fun toMovieEntity(): MovieEntity {
         return MovieEntity(
             id = id,

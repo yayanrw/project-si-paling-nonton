@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="detailFragment"
-            type="com.heyproject.sipalingnonton.presentation.detail.DetailFragment" />
+            name="detailActivity"
+            type="com.heyproject.sipalingnonton.presentation.detail.DetailActivity" />
 
         <variable
             name="imgUrl"
@@ -99,7 +99,7 @@
                 android:backgroundTint="@color/midnight_blue"
                 android:contentDescription="@string/favorite_unfavorite"
                 android:minHeight="48dp"
-                android:onClick="@{() -> detailFragment.setFavoriteMovie()}"
+                android:onClick="@{() -> detailActivity.setFavoriteMovie()}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_release_date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_title"

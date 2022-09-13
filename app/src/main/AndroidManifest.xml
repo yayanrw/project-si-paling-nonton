@@ -4,6 +4,8 @@
     package="com.heyproject.sipalingnonton">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,6 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SiPalingNonton"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.detail.DetailActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="detail_movie"
+                    android:scheme="sipalingnonton" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

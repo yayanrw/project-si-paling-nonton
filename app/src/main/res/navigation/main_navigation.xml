@@ -11,45 +11,15 @@
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_homeFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.heyproject.sipalingnonton.presentation.detail.DetailFragment"
-        android:label="{title}"
-        tools:layout="@layout/fragment_detail">
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.heyproject.sipalingnonton.presentation.detail.DetailActivity"
+        android:label="DetailActivity" >
         <argument
-            android:name="movieId"
-            android:defaultValue="0"
-            app:argType="integer" />
-        <argument
-            android:name="title"
-            android:defaultValue="title_default"
-            app:argType="string" />
-        <argument
-            android:name="isFavorite"
-            app:argType="boolean"
-            android:defaultValue="false" />
-        <argument
-            android:name="posterPath"
-            app:argType="string"
-            android:defaultValue="default_poster_path" />
-        <argument
-            android:name="overview"
-            app:argType="string"
-            android:defaultValue="default_overview" />
-        <argument
-            android:name="releaseDate"
-            app:argType="string"
-            android:defaultValue="release_date" />
-        <argument
-            android:name="backdropPath"
-            app:argType="string"
-            android:defaultValue="backdrop_path_default" />
-        <argument
-            android:name="voteAverage"
-            app:argType="string"
-            android:defaultValue="vote_average_default" />
-    </fragment>
+            android:name="movie"
+            app:argType="com.heyproject.core.domain.model.Movie" />
+    </activity>
 </navigation>

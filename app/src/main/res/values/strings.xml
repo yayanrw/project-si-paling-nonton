@@ -11,4 +11,5 @@
     <string name="success_remove">Successfully remove from favorite</string>
     <string name="favorite_movies">Favorite Movies</string>
     <string name="no_favorite_movies_available">No favorite movies available</string>
-    <string name="setting">Setting</string></resources>
+    <string name="setting">Setting</string>
+</resources>
