@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.heyproject.core.BuildConfig
 import com.heyproject.core.core.BASE_URL
 import com.heyproject.core.core.DB_NAME
+import com.heyproject.core.core.HOST_NAME
 import com.heyproject.core.core.TIMEOUT_CONNECTION
 import com.heyproject.core.data.local.LocalDataSource
 import com.heyproject.core.data.local.database.MoviesDatabase
@@ -14,6 +15,7 @@ import com.heyproject.core.data.utils.AppExecutors
 import com.heyproject.core.domain.repository.MovieRepository
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -38,6 +40,12 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        val certificatePinner = CertificatePinner.Builder()
+            .add(HOST_NAME, BuildConfig.SERTIFICATE_KEY_1)
+            .add(HOST_NAME, BuildConfig.SERTIFICATE_KEY_2)
+            .add(HOST_NAME, BuildConfig.SERTIFICATE_KEY_3)
+            .add(HOST_NAME, BuildConfig.SERTIFICATE_KEY_4)
+            .build()
         val loggingInterceptor =
             if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -48,6 +56,7 @@ val networkModule = module {
             .addInterceptor(loggingInterceptor)
             .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
     single {

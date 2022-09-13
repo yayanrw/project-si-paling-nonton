@@ -17,6 +17,10 @@ android {
 
         buildConfigField("String", "API_KEY", "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNWQ3ZDcwN2M1ZWY1NWZiNWI4MjhhNDE2ZmEzZGNiOSIsInN1YiI6IjYyNzI5ZjFhYTMxM2I4MTJjYmRlZDk4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.miNA7aldD4w3I3oIQRPaE0OXOZukXrThif8lyUkt5ZM\"")
         buildConfigField("String", "SQLITE_KEY", "\"yM&jgHAeaJH4ZWYV\"")
+        buildConfigField("String", "SERTIFICATE_KEY_1", "\"sha256/+vqZVAzTqUP8BGkfl88yU7SQ3C8J2uNEa55B7RZjEg0=\"")
+        buildConfigField("String", "SERTIFICATE_KEY_2", "\"sha256/JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA=\"")
+        buildConfigField("String", "SERTIFICATE_KEY_3", "\"sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=\"")
+        buildConfigField("String", "SERTIFICATE_KEY_4", "\"sha256/KwccWaCgrnaw6tsrrSO61FgLacNgG2MMLq8GE6+oP5I=\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
